@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottomSheet"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginStart="@dimen/_8dp"
+    android:layout_marginEnd="@dimen/_8dp"
+    android:background="@android:color/white"
+    app:behavior_hideable="true"
+    app:behavior_peekHeight="102dp"
+    app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
+
+
+    <SeekBar
+        android:id="@+id/sbAnswer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_16dp"
+        android:paddingTop="@dimen/_16dp"
+        android:paddingBottom="@dimen/_32dp"
+        android:progress="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAnswer" />
+
+    <TextView
+        android:id="@+id/tvAnswer"
+        style="@style/AgeCounterStyleTextLarge"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="@dimen/_16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/circle_gray_outline"
+        android:padding="@dimen/_16dp"
+        android:text="@string/default_age"
+        android:gravity="center"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/sbAnswer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvFollowUpQuestion" />
+
+    <TextView
+        android:id="@+id/tvFollowUpQuestion"
+        style="@style/TextStyleFollowUpQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_16dp"
+        android:layout_marginTop="@dimen/_20dp"
+        android:layout_marginEnd="@dimen/_16dp"
+        android:layout_marginBottom="16dp"
+        android:lineSpacingMultiplier="0.9"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/tvAnswer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

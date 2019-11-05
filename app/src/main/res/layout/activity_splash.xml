@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:theme="@style/QuestionnaireTheme"
+    tools:context=".view.splash.SplashActivity">
+
+    <TextView
+        android:id="@+id/tvAppName"
+        style="@style/AppNameStyleTextLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="@string/app_name"
+        android:transitionName="appNameTransition" />
+
+
+    <ImageView
+        android:id="@+id/ivDone"
+        android:layout_width="@dimen/_32dp"
+        android:layout_height="@dimen/_32dp"
+        android:layout_alignTop="@+id/etUsername"
+        android:layout_alignBottom="@+id/etUsername"
+        android:layout_marginStart="@dimen/_4dp"
+        android:layout_marginTop="@dimen/_4dp"
+        android:layout_marginBottom="@dimen/_4dp"
+        android:layout_toEndOf="@+id/etUsername"
+        android:contentDescription="@string/app_name"
+        android:scaleType="centerInside"
+        android:visibility="visible"
+        app:srcCompat="@drawable/ic_next" />
+
+
+    <EditText
+        android:id="@+id/etUsername"
+        style="@style/UsernameStylePrimary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/_32dp"
+        android:drawableStart="@drawable/ic_person_white"
+        android:drawablePadding="@dimen/_4dp"
+        android:focusable="true"
+        android:imeOptions="actionDone"
+        android:hint="@string/hint_username"
+        android:inputType="text"
+        android:padding="@dimen/_8dp"
+        android:textAlignment="textStart"
+        android:textColorHint="@android:color/white"
+        android:transitionName="appNameTransition"
+        android:visibility="visible" />
+
+</RelativeLayout>

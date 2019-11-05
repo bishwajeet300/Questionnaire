@@ -1,0 +1,108 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+    <style name="FullscreenTheme" parent="AppTheme">
+        <item name="android:actionBarStyle">@style/FullscreenActionBarStyle</item>
+        <item name="android:windowActionBarOverlay">false</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="android:windowContentTransitions">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+
+    <style name="FullscreenActionBarStyle" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+
+    <style name="QuestionnaireTheme" parent="FullscreenTheme">
+        <item name="android:colorForeground">@color/colorPrimary</item>
+        <item name="android:textColorPrimary">@color/textPrimary</item>
+    </style>
+
+    <style name="AppNameStyle" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/textPrimary</item>
+        <item name="android:fontFamily">@font/raleway_regular</item>
+        <item name="android:includeFontPadding">true</item>
+        <item name="android:lineSpacingExtra">0dp</item>
+    </style>
+
+
+    <style name="AppNameStyleTextLarge" parent="AppNameStyle">
+        <item name="android:textSize">@dimen/text_36</item>
+    </style>
+
+    <style name="AppNameStyleTextRegular" parent="AppNameStyle">
+        <item name="android:textSize">@dimen/text_24</item>
+    </style>
+
+    <style name="CounterStyleTextLarge">
+        <item name="android:textSize">@dimen/text_36</item>
+    </style>
+
+    <style name="AgeCounterStyleTextLarge">
+        <item name="android:textColor">@color/textPrimary</item>
+        <item name="android:fontFamily">@font/raleway_bold</item>
+        <item name="android:includeFontPadding">true</item>
+        <item name="android:textSize">@dimen/text_24</item>
+    </style>
+
+    <style name="CounterStyleTextRegular">
+        <item name="android:textSize">@dimen/text_24</item>
+    </style>
+
+    <style name="TextStyleQuestion" parent="AppNameStyle">
+        <item name="android:textSize">@dimen/text_20</item>
+        <item name="android:textColor">@color/textPrimary</item>
+        <item name="android:fontFamily">@font/raleway_regular</item>
+        <item name="android:includeFontPadding">true</item>
+        <item name="android:lineSpacingExtra">0dp</item>
+    </style>
+
+    <style name="TextStyleFollowUpQuestion" parent="AppNameStyle">
+        <item name="android:textSize">@dimen/text_18</item>
+        <item name="android:textColor">@color/textSecondary</item>
+        <item name="android:fontFamily">@font/raleway_regular</item>
+        <item name="android:includeFontPadding">true</item>
+        <item name="android:lineSpacingExtra">0dp</item>
+    </style>
+
+    <style name="SubTextStyle" parent="@android:style/TextAppearance">
+        <item name="android:textSize">@dimen/text_14</item>
+        <item name="android:fontFamily">@font/raleway_bold</item>
+        <item name="android:includeFontPadding">true</item>
+        <item name="android:lineSpacingExtra">0dp</item>
+    </style>
+
+    <style name="SubTextStylePrimary" parent="SubTextStyle">
+        <item name="android:textColor">@color/subtextPrimary</item>
+    </style>
+
+
+    <style name="UsernameStylePrimary" parent="SubTextStyle">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/text_24</item>
+        <item name="android:fontFamily">@font/raleway_light</item>
+        <item name="android:includeFontPadding">true</item>
+        <item name="android:lineSpacingExtra">0dp</item>
+    </style>
+
+    <style name="SubTextStyleSecondary" parent="SubTextStyle">
+        <item name="android:textColor">@color/subtextSecondary</item>
+    </style>
+
+    <style name="SelectionRadioButton">
+        <item name="android:background">@drawable/button_selector_options</item>
+        <item name="android:button">@android:color/transparent</item>
+        <item name="android:padding">@dimen/_8dp</item>
+        <item name="android:layout_marginBottom">@dimen/_8dp</item>
+    </style>
+
+</resources>

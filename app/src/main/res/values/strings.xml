@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Questionnaire</string>
+    <string name="categories">categories</string>
+    <string name="questions">questions</string>
+    <string name="back">Back</string>
+    <string name="default_age">30</string>
+    <string name="confirm">Confirm</string>
+    <string name="hint_username">\@username</string>
+    <string name="radio_button_id">radio_button_id</string>
+    <string name="new_user">New</string>
+    <string name="old_user">Previous</string>
+    <string name="app_name_view">Questionnaire - Preview</string>
+    <string name="greeting">It\'s great to see you\nhere </string>
+    <string name="awesome">Awesome!</string>
+    <string name="greeting_2">You have completed your\nQuestionnaire</string>
+    <string name="update_message">You can always update\\nyour Questionnaire</string>
+</resources>
