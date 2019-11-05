@@ -5,7 +5,7 @@ Questionnaire is a profile creator app which takes information from app users an
 
 ## Architecture & Design Pattern
 
-Reach follows a Model-View-Presenter design pattern. A clear segregation among the three elements helps in achieving a loosely coupled but highly cohesive application.
+Questionnaire App follows a Model-View-Presenter design pattern. A clear segregation among the three elements helps in achieving a loosely coupled but highly cohesive application.
 In order to create a highly testable piece of code, Dependency Injection has been used. Dagger2 helps in facilitating this.
 
 #### Rule of Thumb
