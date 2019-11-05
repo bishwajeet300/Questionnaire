@@ -68,8 +68,7 @@ class SplashActivityTest {
     companion object {
 
         var TEST_USERANME = "TestUser"
-        var VALIDAYION_TEXT = "Hello TestUser"
-        var OLD_USER = "tom"
-        var NEW_USER = UUID.randomUUID().toString() //Generate random username
+        var VALIDAYION_TEXT = "It's great to see you\nhere TestUser"
+        var OLD_USER = "JohnDoe"
     }
 }
