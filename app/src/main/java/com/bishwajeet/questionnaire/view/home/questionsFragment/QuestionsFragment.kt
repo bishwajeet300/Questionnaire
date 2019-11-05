@@ -3,6 +3,7 @@ package com.bishwajeet.questionnaire.view.home.questionsFragment
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -25,6 +26,7 @@ import com.bishwajeet.questionnaire.utils.INTENT_OPERATION_MODE
 import com.bishwajeet.questionnaire.utils.QUESTION_KEY
 import com.bishwajeet.questionnaire.utils.RADIO_GROUP_ID
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import java.lang.Exception
 import javax.inject.Inject
 
 class QuestionsFragment : dagger.android.support.DaggerFragment(), IQuestionsContract.QuestionsView {
@@ -129,52 +131,57 @@ class QuestionsFragment : dagger.android.support.DaggerFragment(), IQuestionsCon
 
     @SuppressLint("InflateParams")
     override fun showConditionalQuestionView(ifPositiveModel: IfPositiveModel, operationmode: Boolean, answer: String) {
-        val view = layoutInflater.inflate(R.layout.bottom_sheet_layout, null)
-        val shake = AnimationUtils.loadAnimation(requireContext(), R.anim.shake)
+        try {
+            val view = layoutInflater.inflate(R.layout.bottom_sheet_layout, null)
+            val shake = AnimationUtils.loadAnimation(requireContext(), R.anim.shake)
 
-        bottomSheetDialog = BottomSheetDialog(requireContext())
-        bottomSheetDialog.setContentView(view)
+            bottomSheetDialog = BottomSheetDialog(requireContext())
+            bottomSheetDialog.setContentView(view)
 
-        val tvFollowUpQuestion: TextView = view.findViewById(R.id.tvFollowUpQuestion)
-        val tvAnswer: TextView = view.findViewById(R.id.tvAnswer)
-        val sbAnswer: SeekBar = view.findViewById(R.id.sbAnswer)
-        sbAnswer.max = ifPositiveModel.if_positive.question_type.range.to
-        sbAnswer.max = ifPositiveModel.if_positive.question_type.range.to
-        tvFollowUpQuestion.text = ifPositiveModel.if_positive.question
+            val tvFollowUpQuestion: TextView = view.findViewById(R.id.tvFollowUpQuestion)
+            val tvAnswer: TextView = view.findViewById(R.id.tvAnswer)
+            val sbAnswer: SeekBar = view.findViewById(R.id.sbAnswer)
+            sbAnswer.max = ifPositiveModel.if_positive.question_type.range.to
+            sbAnswer.max = ifPositiveModel.if_positive.question_type.range.to
+            tvFollowUpQuestion.text = ifPositiveModel.if_positive.question
 
-        if(operationmode) {
-            sbAnswer.progress = 30
-            sbAnswer.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-                override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                    tvAnswer.visibility = View.VISIBLE
-                    tvAnswer.text = progress.toString()
+            if (operationmode) {
+                sbAnswer.progress = 30
+                sbAnswer.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+                    override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                        tvAnswer.visibility = View.VISIBLE
+                        tvAnswer.text = progress.toString()
+                    }
+
+                    override fun onStartTrackingTouch(seekBar: SeekBar?) {
+
+                    }
+
+                    override fun onStopTrackingTouch(seekBar: SeekBar?) {
+                        Handler().postDelayed({
+                            shake.repeatMode = Animation.INFINITE
+                            shake.repeatCount = Animation.INFINITE
+                            tvAnswer.startAnimation(shake)
+                        }, 3000)
+                    }
+                })
+
+                tvAnswer.setOnClickListener {
+                    tvAnswer.clearAnimation()
+                    presenter.saveSelection(Answer(ifPositiveModel.if_positive.id.toString(), tvAnswer.text.toString()))
+                    bottomSheetDialog.dismiss()
+                    callback.onOptionSelected()
                 }
-
-                override fun onStartTrackingTouch(seekBar: SeekBar?) {
-
-                }
-
-                override fun onStopTrackingTouch(seekBar: SeekBar?) {
-                    Handler().postDelayed({
-                        shake.repeatMode = Animation.INFINITE
-                        shake.repeatCount = Animation.INFINITE
-                        tvAnswer.startAnimation(shake)
-                    }, 3000)
-                }
-            })
-
-            tvAnswer.setOnClickListener {
-                tvAnswer.clearAnimation()
-                presenter.saveSelection(Answer(ifPositiveModel.if_positive.id.toString(), tvAnswer.text.toString()))
-                bottomSheetDialog.dismiss()
-                callback.onOptionSelected()
+            } else {
+                sbAnswer.progress = answer.toInt()
+                tvAnswer.text = answer
             }
-        } else {
-            sbAnswer.progress = answer.toInt()
-            tvAnswer.text = answer
-        }
 
-        bottomSheetDialog.show()
+            bottomSheetDialog.show()
+        } catch (exception: Exception) {
+            Log.i("Questionnaire", "Seems like fragment is still not attached yet")
+            Log.e("Questionnaire", exception.toString())
+        }
     }
 
 
