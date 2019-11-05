@@ -29,7 +29,7 @@ class OnboardingActivityTest {
     fun checkButtonText() {
         Espresso.onView(ViewMatchers.withId(R.id.tvNewUser)).check(ViewAssertions.matches(ViewMatchers.withText(R.string.new_user)))
 
-        Espresso.onView(ViewMatchers.withId(R.id.ivOldUser)).check(ViewAssertions.matches(ViewMatchers.withText(R.string.old_user)))
+        Espresso.onView(ViewMatchers.withId(R.id.tvOldUser)).check(ViewAssertions.matches(ViewMatchers.withText(R.string.old_user)))
     }
 
 }

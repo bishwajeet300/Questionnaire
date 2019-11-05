@@ -54,7 +54,6 @@ class OnboardingActivity : DaggerAppCompatActivity(), IOnboardingContract.Onboar
 
     override fun disableReadMode() {
         llOldUser.isEnabled = false
-        llOldUser.setOnClickListener {}
     }
 
 
@@ -65,7 +64,7 @@ class OnboardingActivity : DaggerAppCompatActivity(), IOnboardingContract.Onboar
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-
+        llOldUser.isEnabled = false
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == INTENT_READ_REQUEST_MODE.hashCode()) {
                 tvUsername.text = getString(R.string.update_message)

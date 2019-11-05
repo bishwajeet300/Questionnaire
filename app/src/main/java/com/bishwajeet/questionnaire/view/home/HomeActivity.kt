@@ -88,7 +88,7 @@ class HomeActivity : DaggerAppCompatActivity(), IHomeContract.HomeView, Question
                     tvTitle.text = getString(com.bishwajeet.questionnaire.R.string.app_name)
                     OPERATIONMODE = true
                     vpQuestions.offscreenPageLimit = 1
-                    vpQuestions.setSwipePagingEnabled(true)
+                    vpQuestions.setSwipePagingEnabled(false)
                 }
             }
         }
