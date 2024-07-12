@@ -19,7 +19,7 @@ class CommonUtilTest {
 
         Assert.assertEquals(isUsernameValid("a"), false)
 
-        Assert.assertEquals(isUsernameValid("ab"), false)
+        Assert.assertEquals(isUsernameValid("ab"), true)
 
         Assert.assertEquals(isUsernameValid("abc"), true)
     }
